@@ -1,21 +1,29 @@
 {
   "name": "prisma-tunneled-deploy",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Deploy Prisma Migrations to a remote database through SSH tunneling",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "tsc",
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish"
   },
   "keywords": [],
   "files": [
     "dist"
   ],
-  "author": "",
+  "author": {
+    "name": "Cristian Petre",
+    "email": "driimus@vivaldi.net"
+  },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.0",
+    "@types/node": "^16.18.12",
     "@types/ssh2": "^1.11.7",
     "prettier": "^2.8.3",
     "typescript": "^4.9.5"
@@ -24,5 +32,10 @@
     "@sinclair/typebox": "^0.25.21",
     "execa": "^6.1.0",
     "ssh2": "^1.11.0"
+  },
+  "packageManager": "pnpm@7.27.0",
+  "engines": {
+    "node": ">=16.18",
+    "pnpm": ">=7.27.0"
   }
 }
