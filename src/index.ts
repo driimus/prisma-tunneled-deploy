@@ -18,7 +18,7 @@ export async function deployMigrations(credentials: DBCredentials, sshOptions: T
     dstPort: credentials.port,
   };
 
-  const [server] = await createTunnel(
+  const { server } = await createTunnel(
     {
       port: credentials.port,
     },

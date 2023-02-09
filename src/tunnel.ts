@@ -1,7 +1,7 @@
 import net from 'net';
 import { Client, ConnectConfig } from 'ssh2';
 
-async function createServer(options: net.ListenOptions): Promise<net.Server> {
+function createServer(options: net.ListenOptions): Promise<net.Server> {
   return new Promise((resolve, reject) => {
     let server = net.createServer();
     let errorHandler = function (error: unknown) {
@@ -17,8 +17,8 @@ async function createServer(options: net.ListenOptions): Promise<net.Server> {
   });
 }
 
-async function createClient(config: ConnectConfig): Promise<Client> {
-  return new Promise(function (resolve, reject) {
+function createClient(config: ConnectConfig): Promise<Client> {
+  return new Promise((resolve, reject) => {
     let conn = new Client();
     conn.on('ready', () => resolve(conn));
     conn.on('error', reject);
@@ -33,40 +33,27 @@ type ForwardOptions = {
   dstPort: number;
 };
 
-export function createTunnel(
+export async function createTunnel(
   serverOptions: net.ListenOptions,
   sshOptions: ConnectConfig,
   forwardOptions: ForwardOptions
-): Promise<[net.Server, Client]> {
-  return new Promise(async function (resolve, reject) {
-    let server: net.Server, conn: Client;
+): Promise<{ server: net.Server; client: Client }> {
+  const server = await createServer(serverOptions);
+  const client = await createClient(sshOptions);
 
-    try {
-      server = await createServer(serverOptions);
-    } catch (e) {
-      return reject(e);
-    }
-
-    try {
-      conn = await createClient(sshOptions);
-    } catch (e) {
-      return reject(e);
-    }
-
-    server.on('connection', (connection) => {
-      conn.forwardOut(
-        forwardOptions.srcAddr,
-        forwardOptions.srcPort,
-        forwardOptions.dstAddr,
-        forwardOptions.dstPort,
-        (err, stream) => {
-          connection.pipe(stream).pipe(connection);
-        }
-      );
-    });
-
-    server.on('close', () => conn.end());
-
-    resolve([server, conn]);
+  server.on('connection', (connection) => {
+    client.forwardOut(
+      forwardOptions.srcAddr,
+      forwardOptions.srcPort,
+      forwardOptions.dstAddr,
+      forwardOptions.dstPort,
+      (err, stream) => {
+        connection.pipe(stream).pipe(connection);
+      }
+    );
   });
+
+  server.on('close', () => client.end());
+
+  return { server, client };
 }
