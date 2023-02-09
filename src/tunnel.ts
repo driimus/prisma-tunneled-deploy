@@ -1,3 +1,8 @@
+/**
+ * Largely a copy of https://github.com/agebrock/tunnel-ssh
+ * but with proper type definitions, as the above is v5 but `@types/tunnel-ssh` is for v4
+ */
+
 import net from 'net';
 import { Client, ConnectConfig } from 'ssh2';
 
