@@ -1,14 +1,9 @@
 import { execa } from 'execa';
 import { createTunnel } from './tunnel.js';
-import {
-  DBCredentials,
-  isDbCredentials,
-  isTunnelingOptions,
-  TunnelingOptions,
-} from './validation.js';
+import { DBCredentials, isDbCredentials, isSshOptions, SSHOptions } from './validation.js';
 
-export async function deployMigrations(credentials: DBCredentials, sshOptions: TunnelingOptions) {
-  if (!isDbCredentials(credentials) || !isTunnelingOptions(sshOptions))
+export async function deployMigrations(credentials: DBCredentials, sshOptions: SSHOptions) {
+  if (!isDbCredentials(credentials) || !isSshOptions(sshOptions))
     throw new Error('Arguments must match provided types');
 
   const forwardOptions = {

@@ -9,11 +9,15 @@ const dbCredentials = Type.Object({
   url: Type.String(),
 });
 export type DBCredentials = Static<typeof dbCredentials>;
-export const isDbCredentials = TypeCompiler.Compile(dbCredentials).Check;
 
-const tunnelingOptions = Type.Object({
+const credentialsSchema = TypeCompiler.Compile(dbCredentials);
+export const isDbCredentials = (v: unknown) => credentialsSchema.Check(v);
+
+const sshOptions = Type.Object({
   host: Type.String(),
   privateKey: Type.String(),
 });
-export type TunnelingOptions = Static<typeof tunnelingOptions>;
-export const isTunnelingOptions = TypeCompiler.Compile(tunnelingOptions).Check;
+export type SSHOptions = Static<typeof sshOptions>;
+
+const sshOptionsSchema = TypeCompiler.Compile(sshOptions);
+export const isSshOptions = (v: unknown) => sshOptionsSchema.Check(v);
