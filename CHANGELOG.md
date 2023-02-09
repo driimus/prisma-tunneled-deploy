@@ -1,5 +1,11 @@
 # prisma-tunneled-deploy
 
+## 0.1.2
+
+### Patch Changes
+
+- [`2fe0664`](https://github.com/driimus/prisma-tunneled-deploy/commit/2fe06645416912d7f16218fb5ad97bb5df1cb890) Thanks [@driimus](https://github.com/driimus)! - fix(validation): bind validator scopes
+
 ## 0.1.1
 
 ### Patch Changes
