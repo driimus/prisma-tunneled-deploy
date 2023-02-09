@@ -34,13 +34,13 @@ type ForwardOptions = {
 };
 
 export function createTunnel(
-  tunnelOptions: { autoClose?: boolean },
   serverOptions: net.ListenOptions,
   sshOptions: ConnectConfig,
   forwardOptions: ForwardOptions
 ): Promise<[net.Server, Client]> {
   return new Promise(async function (resolve, reject) {
     let server: net.Server, conn: Client;
+
     try {
       server = await createServer(serverOptions);
     } catch (e) {
@@ -52,6 +52,7 @@ export function createTunnel(
     } catch (e) {
       return reject(e);
     }
+
     server.on('connection', (connection) => {
       conn.forwardOut(
         forwardOptions.srcAddr,
@@ -65,6 +66,7 @@ export function createTunnel(
     });
 
     server.on('close', () => conn.end());
+
     resolve([server, conn]);
   });
 }

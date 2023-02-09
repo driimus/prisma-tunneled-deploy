@@ -14,7 +14,7 @@
     "dist"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/ssh2": "^1.11.7",
     "prettier": "^2.8.3",

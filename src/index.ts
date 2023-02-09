@@ -1,44 +1,38 @@
-import { Static, Type } from '@sinclair/typebox';
 import { execa } from 'execa';
 import { createTunnel } from './tunnel.js';
+import {
+  DBCredentials,
+  isDbCredentials,
+  isTunnelingOptions,
+  TunnelingOptions,
+} from './validation.js';
 
-const dbCredentialsShema = Type.Object({
-  host: Type.String(),
-  port: Type.Number(),
-  username: Type.String(),
-  password: Type.String(),
-  url: Type.String(),
-});
+export async function deployMigrations(credentials: DBCredentials, sshOptions: TunnelingOptions) {
+  if (!isDbCredentials(credentials) || !isTunnelingOptions(sshOptions))
+    throw new Error('Arguments must match provided types');
 
-type DBCredentials = Static<typeof dbCredentialsShema>;
-
-const tunnelSchema = Type.Object({
-  host: Type.String(),
-  privateKey: Type.String(),
-});
-
-type TunnelOptions = Static<typeof tunnelSchema>;
-
-export async function deployMigrations(db: DBCredentials, tunnel: TunnelOptions) {
-  // validate params
-  const sshOptions = {
-    ...tunnel,
-    port: 22,
-    username: 'ubuntu',
+  const forwardOptions = {
+    srcAddr: '127.0.0.1',
+    srcPort: credentials.port,
+    dstAddr: credentials.host,
+    dstPort: credentials.port,
   };
 
   const [server] = await createTunnel(
-    { autoClose: false },
     {
-      port: db.port,
+      port: credentials.port,
     },
-    sshOptions,
-    { srcAddr: '127.0.0.1', srcPort: db.port, dstPort: db.port, dstAddr: db.host }
+    {
+      ...sshOptions,
+      port: 22,
+      username: 'ubuntu',
+    },
+    forwardOptions
   );
 
-  const { stdout } = await execa('prisma', ['migrate', 'status'], {
+  const { stdout } = await execa('prisma', ['migrate', 'deploy'], {
     env: {
-      DATABASE_URL: db.url,
+      DATABASE_URL: credentials.url,
     },
     shell: true,
   });
