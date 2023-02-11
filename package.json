@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@sinclair/typebox": "^0.25.21",
-    "execa": "^6.1.0",
+    "execa": "^7.0.0",
     "ssh2": "^1.11.0"
   },
   "packageManager": "pnpm@7.27.0",
