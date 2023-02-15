@@ -19,11 +19,7 @@ export async function deployMigrations(credentials: DBCredentials, sshOptions: S
     {
       port: credentials.port,
     },
-    {
-      ...sshOptions,
-      port: 22,
-      username: 'ubuntu',
-    },
+    sshOptions,
     forwardOptions
   );
 
