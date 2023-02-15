@@ -11,7 +11,11 @@
     "ci:version": "changeset version",
     "ci:publish": "changeset publish"
   },
-  "keywords": [],
+  "keywords": [
+    "prisma",
+    "ssh tunneling",
+    "migrate"
+  ],
   "files": [
     "dist"
   ],
@@ -20,6 +24,14 @@
     "email": "driimus@vivaldi.net"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driimus/prisma-tunneled-deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/driimus/prisma-tunneled-deploy/issues"
+  },
+  "homepage": "https://github.com/driimus/prisma-tunneled-deploy#readme",
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
