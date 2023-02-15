@@ -34,7 +34,7 @@ pnpm add -D prisma-tunneled-deploy
      {
        // details of the bastion host used for SSH tunneling
        host: '192.168.100.100',
-       privateKey: readFileSync('/path/to/my/key'),
+       privateKey: readFileSync('/path/to/my/key').toString('utf-8'),
        username: 'ubuntu',
      }
    );
