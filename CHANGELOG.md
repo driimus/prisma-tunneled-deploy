@@ -1,5 +1,11 @@
 # prisma-tunneled-deploy
 
+## 0.1.4
+
+### Patch Changes
+
+- [`9b419bf`](https://github.com/driimus/prisma-tunneled-deploy/commit/9b419bff294450055f236975d2dc86aff22a94f9) Thanks [@driimus](https://github.com/driimus)! - docs: basic usage guide
+
 ## 0.1.3
 
 ### Patch Changes
