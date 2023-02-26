@@ -16,8 +16,11 @@ export const isDbCredentials = (v: unknown) => credentialsSchema.Check(v);
 const sshOptions = Type.Object({
   host: Type.String(),
   privateKey: Type.String(),
-  port: Type.Number({ default: 22 }),
   username: Type.String(),
+  /**
+   * @remarks `ssh2` clients use `22` as a fallback value
+   */
+  port: Type.Optional(Type.Number()),
 });
 export type SSHOptions = Static<typeof sshOptions>;
 
