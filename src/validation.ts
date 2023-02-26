@@ -1,5 +1,8 @@
 import { Static, Type } from '@sinclair/typebox';
 import { TypeCompiler } from '@sinclair/typebox/compiler';
+import Ajv from 'ajv';
+
+const ajv = new Ajv.default({ useDefaults: true });
 
 const dbCredentials = Type.Object({
   host: Type.String(),
@@ -21,5 +24,4 @@ const sshOptions = Type.Object({
 });
 export type SSHOptions = Static<typeof sshOptions>;
 
-const sshOptionsSchema = TypeCompiler.Compile(sshOptions);
-export const isSshOptions = (v: unknown) => sshOptionsSchema.Check(v);
+export const isSshOptions = (v: unknown) => ajv.validate(sshOptions, v);
