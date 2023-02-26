@@ -4,7 +4,12 @@ import { DBCredentials, isDbCredentials, isSshOptions, SSHOptions } from './vali
 
 const detectPackageManager = () => process.env.npm_config_user_agent?.split('/')?.[0] ?? 'npm';
 
-export async function deployMigrations(credentials: DBCredentials, sshOptions: SSHOptions) {
+type SetOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+export async function deployMigrations(
+  credentials: DBCredentials,
+  sshOptions: SetOptional<SSHOptions, 'port'>
+) {
   if (!isDbCredentials(credentials) || !isSshOptions(sshOptions))
     throw new Error('Arguments must match provided types');
 
