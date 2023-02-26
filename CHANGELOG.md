@@ -1,5 +1,11 @@
 # prisma-tunneled-deploy
 
+## 0.1.5
+
+### Patch Changes
+
+- [`ba0ff11`](https://github.com/driimus/prisma-tunneled-deploy/commit/ba0ff11c27b0b8403bda2bac4c5ea0f4590f21e0) Thanks [@driimus](https://github.com/driimus)! - refactor(types): make port optional
+
 ## 0.1.4
 
 ### Patch Changes
