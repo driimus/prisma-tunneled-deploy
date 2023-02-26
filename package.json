@@ -1,6 +1,6 @@
 {
   "name": "prisma-tunneled-deploy",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Deploy Prisma Migrations to a remote database through SSH tunneling",
   "type": "module",
   "exports": "./dist/index.js",
