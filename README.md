@@ -1,6 +1,6 @@
 # prisma-tunneled-deploy
 
-Apply Prisma Databse migrations through an SSH tunnel
+Deploy Prisma Migrations to a remote database through SSH tunneling.
 
 ## Installation
 
@@ -9,6 +9,9 @@ pnpm add -D prisma-tunneled-deploy
 ```
 
 ## Usage
+
+> **Warning**
+> Your package manager must have access to the `prisma` binary.
 
 ### Deploy migrations through a script
 
