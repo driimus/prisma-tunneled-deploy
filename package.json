@@ -45,7 +45,7 @@
     "execa": "^7.0.0",
     "ssh2": "^1.11.0"
   },
-  "packageManager": "pnpm@7.30.0",
+  "packageManager": "pnpm@7.32.2",
   "engines": {
     "node": ">=16.18",
     "pnpm": ">=7.27.0"
