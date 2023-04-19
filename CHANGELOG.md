@@ -1,5 +1,11 @@
 # prisma-tunneled-deploy
 
+## 0.1.6
+
+### Patch Changes
+
+- [`93a7cba`](https://github.com/driimus/prisma-tunneled-deploy/commit/93a7cba737bb5a9df6401e3f6776b76044cb5240) Thanks [@driimus](https://github.com/driimus)! - docs: warn about dependency on prisma cli
+
 ## 0.1.5
 
 ### Patch Changes
