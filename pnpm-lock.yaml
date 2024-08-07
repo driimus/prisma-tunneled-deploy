@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@sinclair/typebox':
-    specifier: ^0.31.0
-    version: 0.31.0
+    specifier: ^0.33.0
+    version: 0.33.0
   execa:
     specifier: ^7.0.0
     version: 7.0.0
@@ -305,8 +305,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@sinclair/typebox@0.31.0:
-    resolution: {integrity: sha512-bL3KIy1cqi4wyKwJZ3szckq0k/IuLluwQ9IB8QMNS2ogHGiqkempV7uO52Tjr79oBgOnlRaOhIf5qkc8HH9KhA==}
+  /@sinclair/typebox@0.33.0:
+    resolution: {integrity: sha512-y4wDeA3hHRpUtHlTDpWEtAnU8wTVzOuDJfn1Q7t42TXXHBrhHOK+Ij7y1zJAyXnDuIrEBVw8sLW1Uzl2WCyz+A==}
     dev: false
 
   /@types/is-ci@3.0.0:
