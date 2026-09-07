@@ -36,7 +36,7 @@ jobs:
         run: pnpm install
 
       - name: create and publish versions
-        uses: changesets/action@v1
+        uses: changesets/action@v2.1.2
         with:
           version: pnpm ci:version
           title: 'chore: update versions'
