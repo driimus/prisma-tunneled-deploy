@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@sinclair/typebox':
-    specifier: ^0.31.0
-    version: 0.31.0
+    specifier: ^0.34.0
+    version: 0.34.52
   execa:
     specifier: ^7.0.0
     version: 7.0.0
@@ -305,8 +309,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@sinclair/typebox@0.31.0:
-    resolution: {integrity: sha512-bL3KIy1cqi4wyKwJZ3szckq0k/IuLluwQ9IB8QMNS2ogHGiqkempV7uO52Tjr79oBgOnlRaOhIf5qkc8HH9KhA==}
+  /@sinclair/typebox@0.34.52:
+    resolution: {integrity: sha512-XiMQh7qqVlxZzcVD+kkGMNGMzcTrDMLWI7S4x7z1MkCkbDPrekpZXEUK0eZqZFMuHQg2a2DZOcDIh9o5v3Gonw==}
     dev: false
 
   /@types/is-ci@3.0.0:
@@ -435,6 +439,7 @@ packages:
   /buildcheck@0.0.3:
     resolution: {integrity: sha512-pziaA+p/wdVImfcbsZLNF32EiWyujlQLwolMqUQE8xpKNOH7KmZQaY8sXN7DGOEzPAElo9QTaeNRfGnf3iOJbA==}
     engines: {node: '>=10.0.0'}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1288,6 +1293,7 @@ packages:
 
   /nan@2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     dev: false
     optional: true
 
