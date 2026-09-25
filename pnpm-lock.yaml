@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@sinclair/typebox':
     specifier: ^0.31.0
@@ -25,8 +29,8 @@ devDependencies:
     specifier: ^1.11.7
     version: 1.11.7
   prettier:
-    specifier: ^2.8.3
-    version: 2.8.3
+    specifier: ^3.0.0
+    version: 3.9.9
   typescript:
     specifier: ^4.9.5
     version: 4.9.5
@@ -435,6 +439,7 @@ packages:
   /buildcheck@0.0.3:
     resolution: {integrity: sha512-pziaA+p/wdVImfcbsZLNF32EiWyujlQLwolMqUQE8xpKNOH7KmZQaY8sXN7DGOEzPAElo9QTaeNRfGnf3iOJbA==}
     engines: {node: '>=10.0.0'}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1288,6 +1293,7 @@ packages:
 
   /nan@2.17.0:
     resolution: {integrity: sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1463,6 +1469,12 @@ packages:
   /prettier@2.8.3:
     resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier@3.9.9:
+    resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
